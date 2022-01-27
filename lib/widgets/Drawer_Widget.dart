@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/pages/contact_page.dart';
-import 'package:portfolio_app/pages/home_page.dart';
 import 'package:portfolio_app/pages/projects_page.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -30,29 +29,29 @@ class DrawerWidget extends StatelessWidget {
           leading: const Icon(Icons.home),
           title: const Text('Home'),
           onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()));
+            ModalRoute.of(context)?.settings.name == '/'
+                ? Navigator.pop(context)
+                : Navigator.pushNamed(context, '/');
+                      
           },
         ),
         ListTile(
           leading: const Icon(Icons.umbrella),
           title: const Text('Projects'),
           onTap: () {
-            Navigator.pop(context);
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ProjectsPage()));
-          },
+            ModalRoute.of(context)?.settings.name == '/projects'
+                ? Navigator.pop(context)
+                : Navigator.pushNamed(context, '/projects');
+                      },
         ),
         ListTile(
           leading: const Icon(Icons.contact_mail),
           title: const Text('Contact'),
           onTap: () {
-            Navigator.pop(context);
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ContactPage()));
+            ModalRoute.of(context)?.settings.name == 'contact'
+                ? Navigator.pop(context)
+                : Navigator.pushNamed(context, '/contact');
+
           },
         ),
       ],

@@ -17,8 +17,7 @@ class ProjectList extends ChangeNotifier {
     if (response.statusCode == 200) {
       final responseData = json.decode(response.body) as Map<String, dynamic>;
       final List<Project> loadedProjects = [];
-     
-     
+
       responseData['projects'].forEach((project) {
         loadedProjects.add(Project(
           id: project['id'],
@@ -26,13 +25,12 @@ class ProjectList extends ChangeNotifier {
           description: project['description'],
           image: project['image'],
           link: project['link'],
-         
         ));
       });
       _projects = loadedProjects;
-      print(_projects);
     }
+    notifyListeners();
+    
+    
   }
-
-  notifyListeners();
 }

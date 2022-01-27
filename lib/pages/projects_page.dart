@@ -22,19 +22,22 @@ class _ProjectsPageState extends State<ProjectsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffeef2ff),
       appBar: AppBar(
         title: const Text('Projects'),
       ),
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: SafeArea(
         child: Consumer<ProjectList>(
           builder: (context, projectList, _) =>
-           ListView.builder(
+          projectList.projects.isEmpty
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : ListView.builder(
                     itemCount: projectList.projects.length,
                     itemBuilder: (context, index) {
                       return Card(
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
                         ),

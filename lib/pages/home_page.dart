@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_app/pages/contact_page.dart';
-import 'package:portfolio_app/pages/projects_page.dart';
 import 'package:portfolio_app/widgets/Drawer_Widget.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -9,9 +8,8 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffeef2ff),
       appBar: AppBar(title: const Text('Romaine Halstead')),
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

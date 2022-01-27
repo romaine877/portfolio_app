@@ -7,11 +7,10 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffeef2ff),
       appBar: AppBar(
         title: const Text('Contact'),
       ),
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: const Center(
         child: Text('Contact'),
       ),
